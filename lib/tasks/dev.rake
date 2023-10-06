@@ -25,7 +25,7 @@ task({ :sample_data => :environment }) do
   5.times do
     board = Board.new
     board.name = Faker::Address.community
-    board.user_id = User.all.sample
+    board.user_id = User.all.sample.id
     board.save
 
     rand(10..50).times do
@@ -40,7 +40,7 @@ task({ :sample_data => :environment }) do
     end
   end
 
-  puts "There are now #{User.count} rows in the boards table."
+  puts "There are now #{User.count} rows in the users table."
   puts "There are now #{Board.count} rows in the boards table."
   puts "There are now #{Post.count} rows in the posts table."
 end
