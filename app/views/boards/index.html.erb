@@ -40,12 +40,13 @@
       </a>
 
       <div>
-        <% matching_users = User.where({ :id => a_board.user_id }) %>
-        
-        <% the_user = matching_users.at(0) %>
+        <% if a_board.user_id != nil %>
+          <% matching_users = User.where({ :id => a_board.user_id }) %>
+          
+          <% the_user = matching_users.at(0) %>
 
-        <!-- DO: user.email error; exactly like video-->
-        <%= the_user.email %>
+          <%= the_user.email %>
+        <% end %>
       </div>
 
       <hr>
